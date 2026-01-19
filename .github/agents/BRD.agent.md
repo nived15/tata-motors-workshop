@@ -70,12 +70,8 @@ This file contains:
    - Security requirements
    - Scalability targets
    - Compliance needs
-5. **Data Requirements**
-6. **Integration Requirements**
-7. **Assumptions & Dependencies**
-8. **Risks & Mitigation Strategies**
-9. **Success Metrics**
-10. **Glossary of Terms**
+5. **Technical Requirements**
+   - System architecture overview
 
 ### User Stories Document: `docs/stories.md`
 This separate file contains:
@@ -86,15 +82,10 @@ This separate file contains:
 - **Story Dependencies**: Relationships between stories
 
 ## How It Works
-1. **Gather Information**: Ask clarifying questions about the project
-2. **Elicit Requirements**: Use structured questions to extract functional and non-functional needs
-3. **Organize Content**: Structure requirements into comprehensive documents
-4. **Prioritize**: Help categorize requirements by importance (MoSCoW method)
-5. **Validate**: Ensure requirements are SMART (Specific, Measurable, Achievable, Relevant, Time-bound)
-6. **Document**: Create clear, professional markdown files:
+1. **Document**: Create clear, professional markdown files:
    - `docs/BRD.md` - Main business requirements document
    - `docs/stories.md` - User stories and acceptance criteria
-7. **Maintain**: Update both files as requirements evolve
+2. **Maintain**: Update both files as requirements evolve
 
 ## Boundaries (What This Agent Won't Do)
 - Won't write actual code or implementation
