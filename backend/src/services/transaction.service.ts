@@ -98,7 +98,21 @@ export const createTransaction = async (
 export const getTransactions = async (userId: string, filters: TransactionFilters) => {
   const { startDate, endDate, categoryId, search, page, limit } = filters;
 
-  const where: any = {
+  interface WhereClause {
+    userId: string
+    deletedAt: null
+    transactionDate?: {
+      gte?: Date
+      lte?: Date
+    }
+    categoryId?: string
+    OR?: Array<{
+      source?: { contains: string; mode: 'insensitive' }
+      notes?: { contains: string; mode: 'insensitive' }
+    }>
+  }
+
+  const where: WhereClause = {
     userId,
     deletedAt: null,
   };
@@ -233,10 +247,16 @@ export const updateTransaction = async (
           amount: existingTransaction.amount.toString(),
           source: existingTransaction.source,
           categoryId: existingTransaction.categoryId,
-          transactionDate: existingTransaction.transactionDate,
-          notes: existingTransaction.notes,
-        },
-        newValue: data as any,
+          transactionDate: existingTransaction.transactionDate.toISOString(),
+          notes: existingTransaction.notes || '',
+        } as any,
+        newValue: {
+          amount: data.amount?.toString(),
+          source: data.source,
+          categoryId: data.categoryId,
+          transactionDate: data.transactionDate?.toString(),
+          notes: data.notes,
+        } as any,
         ipAddress: context.ipAddress,
         userAgent: context.userAgent,
       },

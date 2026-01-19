@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from 'axios'
 import { toast } from 'react-toastify'
 
-const API_BASE_URL = (import.meta as any).env?.VITE_API_URL || 'http://localhost:3000/api/v1'
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api/v1'
 
 class ApiClient {
   private client: AxiosInstance

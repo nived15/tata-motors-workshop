@@ -99,10 +99,16 @@ export default function AddIncomeModal({ isOpen, onClose }: AddIncomeModalProps)
         transactionDate: format(new Date(), 'yyyy-MM-dd'),
       })
       onClose()
-    } catch (error: any) {
-      const errorMessage = error?.response?.data?.errors?.[0]?.message || 
-                          error?.response?.data?.message || 
-                          'Failed to add transaction. Please try again.'
+    } catch (error: unknown) {
+      let errorMessage = 'Failed to add transaction. Please try again.'
+      
+      if (error && typeof error === 'object' && 'response' in error) {
+        const axiosError = error as { response?: { data?: { errors?: Array<{ message?: string }>, message?: string } } }
+        errorMessage = axiosError.response?.data?.errors?.[0]?.message || 
+                      axiosError.response?.data?.message || 
+                      errorMessage
+      }
+      
       toast.error(errorMessage)
       console.error('Error creating transaction:', error)
     } finally {
