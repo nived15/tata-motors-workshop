@@ -1,6 +1,6 @@
 ---
 description: 'Creates comprehensive Business Requirements Documents (BRD) with functional and non-functional requirements'
-tools: []
+tools: ['vscode', 'execute', 'read', 'edit', 'search', 'web', 'agent', 'todo']
 ---
 
 # BRD Agent - Business Requirements Document Generator
