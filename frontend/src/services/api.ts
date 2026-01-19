@@ -1,4 +1,4 @@
-import axios, { AxiosError, AxiosInstance } from 'axios'
+import axios, { AxiosInstance } from 'axios'
 import { toast } from 'react-toastify'
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api/v1'
@@ -30,7 +30,7 @@ class ApiClient {
     // Response interceptor - handle errors
     this.client.interceptors.response.use(
       (response) => response,
-      (error: AxiosError) => {
+      (error) => {
         if (error.response?.status === 401) {
           // Handle unauthorized - redirect to login
           localStorage.removeItem('accessToken')
