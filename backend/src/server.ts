@@ -36,13 +36,12 @@ app.get('/health', (_req, res) => {
 });
 
 // API routes
-import transactionRoutes from './routes/transaction.routes';
-import categoryRoutes from './routes/category.routes';
-// import authRoutes from './routes/auth.routes';
+import authRoutes from './routes/auth.routes';
+// import transactionRoutes from './routes/transaction.routes';
 // import dashboardRoutes from './routes/dashboard.routes';
-// app.use('/api/v1/auth', authRoutes);
-app.use('/api/v1/transactions', transactionRoutes);
-app.use('/api/v1/categories', categoryRoutes);
+
+app.use('/api/v1/auth', authRoutes);
+// app.use('/api/v1/transactions', transactionRoutes);
 // app.use('/api/v1/dashboard', dashboardRoutes);
 
 // Error handling middleware (must be last)

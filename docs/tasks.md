@@ -2,7 +2,7 @@
 
 ## Sprint 1: Security Foundation
 
-### [ ] US-1: Secure Account Registration
+### [x] US-1: Secure Account Registration
 Create an account registration system with strong security measures including email validation, password complexity requirements (min 12 characters with uppercase, lowercase, number, and special character), email verification, and rate limiting.
 Complete with password strength indicator, clear error messages, and bcrypt password hashing.
 
