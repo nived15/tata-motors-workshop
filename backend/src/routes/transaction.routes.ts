@@ -3,8 +3,12 @@ import * as transactionController from '../controllers/transaction.controller';
 import { authenticateToken } from '../middleware/auth';
 import { validateRequest } from '../middleware/validator';
 import { createTransactionSchema } from '../validators/transaction.validator';
+import { apiLimiter } from '../middleware/rateLimit';
 
 const router = Router();
+
+// Apply rate limiting to all routes
+router.use(apiLimiter);
 
 // All transaction routes require authentication
 router.use(authenticateToken);
