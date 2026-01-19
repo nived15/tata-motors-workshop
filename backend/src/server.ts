@@ -27,7 +27,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(requestLogger);
 
 // Health check endpoint
-app.get('/health', (req, res) => {
+app.get('/health', (_req, res) => {
   res.status(200).json({
     status: 'healthy',
     timestamp: new Date().toISOString(),
@@ -35,12 +35,12 @@ app.get('/health', (req, res) => {
   });
 });
 
-// API routes will be imported here
+// API routes
+import transactionRoutes from './routes/transaction.routes';
 // import authRoutes from './routes/auth.routes';
-// import transactionRoutes from './routes/transaction.routes';
 // import dashboardRoutes from './routes/dashboard.routes';
 // app.use('/api/v1/auth', authRoutes);
-// app.use('/api/v1/transactions', transactionRoutes);
+app.use('/api/v1/transactions', transactionRoutes);
 // app.use('/api/v1/dashboard', dashboardRoutes);
 
 // Error handling middleware (must be last)
