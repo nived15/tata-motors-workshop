@@ -5,11 +5,8 @@ import 'react-toastify/dist/ReactToastify.css'
 // Layout
 import Layout from './components/layout/Layout'
 
-// Pages will be imported here
-// import Dashboard from './pages/Dashboard'
-// import Login from './pages/Login'
-// import Register from './pages/Register'
-// import Transactions from './pages/Transactions'
+// Pages
+import Dashboard from './pages/Dashboard'
 
 function App() {
   return (
@@ -21,9 +18,8 @@ function App() {
 
         {/* Protected routes */}
         <Route path="/" element={<Layout />}>
-          {/* <Route index element={<Dashboard />} />
-          <Route path="transactions" element={<Transactions />} /> */}
-          <Route index element={<div className="p-8">Dashboard - Coming Soon</div>} />
+          <Route index element={<Dashboard />} />
+          {/* <Route path="transactions" element={<Transactions />} /> */}
         </Route>
 
         {/* 404 */}
