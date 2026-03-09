@@ -71,10 +71,6 @@ tata-motors-workshop/
 └── CONTRIBUTING.md     # Contribution guidelines
 ```
 
-## 🚀 Quick Start
-
-### Prerequisites
-- Node.js 18+
 - PostgreSQL 15+
 - Redis 7+ (optional)
 - Docker & Docker Compose (optional)
