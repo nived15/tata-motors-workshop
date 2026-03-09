@@ -15,11 +15,19 @@ async function main() {
   ];
 
   for (const category of defaultCategories) {
-    await prisma.category.upsert({
-      where: { name_userId: { name: category.name, userId: null } },
-      update: {},
-      create: category,
+    const existing = await prisma.category.findFirst({
+      where: {
+        name: category.name,
+        isDefault: true,
+        userId: null,
+      },
     });
+
+    if (!existing) {
+      await prisma.category.create({
+        data: category,
+      });
+    }
   }
 
   console.log('Default categories created successfully');

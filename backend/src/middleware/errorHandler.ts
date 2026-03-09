@@ -15,12 +15,12 @@ export class AppError extends Error {
 
 export const errorHandler = (
   err: Error | AppError,
-  req: Request,
+  _req: Request,
   res: Response,
-  next: NextFunction
+  _next: NextFunction
 ) => {
   if (err instanceof AppError) {
-    logger.error(`${err.statusCode} - ${err.message} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
+    logger.error(`${err.statusCode} - ${err.message} - ${_req.originalUrl} - ${_req.method} - ${_req.ip}`);
     
     return res.status(err.statusCode).json({
       status: 'error',
@@ -30,7 +30,7 @@ export const errorHandler = (
   }
 
   // Unexpected errors
-  logger.error(`500 - ${err.message} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
+  logger.error(`500 - ${err.message} - ${_req.originalUrl} - ${_req.method} - ${_req.ip}`);
   logger.error(err.stack);
 
   return res.status(500).json({

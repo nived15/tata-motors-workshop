@@ -12,7 +12,7 @@ export interface AuthRequest extends Request {
 
 export const authenticate = async (
   req: AuthRequest,
-  res: Response,
+  _res: Response,
   next: NextFunction
 ) => {
   try {
@@ -47,3 +47,6 @@ export const authenticate = async (
     }
   }
 };
+
+// Export authenticateToken as an alias for authenticate
+export const authenticateToken = authenticate;
